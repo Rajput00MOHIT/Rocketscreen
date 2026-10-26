@@ -1,0 +1,282 @@
+/* ==========================================================================
+   Free Trial CTA Banner Custom CSS
+   ========================================================================== */
+
+.free-trial-section {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  padding-top: 56px;
+  padding-bottom: 112px;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .free-trial-section {
+    padding-top: 72px;
+    padding-bottom: 140px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Banner Container
+   -------------------------------------------------------------------------- */
+.ft-banner-card {
+  position: relative;
+  width: 100%;
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #ffffff;
+  border: 1px solid #e3e3e8;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px -2px rgba(23, 23, 28, 0.04);
+  display: flex;
+  flex-direction: column;
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.ft-banner-card:hover {
+  box-shadow: 0 12px 36px -4px rgba(23, 23, 28, 0.08);
+}
+
+.ft-banner-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (min-width: 768px) {
+  .ft-banner-card {
+    flex-direction: row;
+    align-items: stretch;
+    min-height: 380px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ft-banner-card {
+    min-height: 420px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Left Column: Promotional Content
+   -------------------------------------------------------------------------- */
+.ft-content-col {
+  flex: 1 1 52%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 32px 32px 32px;
+  z-index: 2;
+}
+
+@media (min-width: 640px) {
+  .ft-content-col {
+    padding: 48px 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ft-content-col {
+    padding: 64px 56px;
+    flex: 1 1 50%;
+  }
+}
+
+.ft-heading {
+  font-size: 36px;
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  color: #171717;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s,
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+}
+
+@media (min-width: 640px) {
+  .ft-heading {
+    font-size: 44px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ft-heading {
+    font-size: 52px;
+  }
+}
+
+.ft-heading-line {
+  display: block;
+}
+
+.ft-duration {
+  font-size: 22px;
+  line-height: 1.3;
+  font-weight: 600;
+  color: #d91c8a;
+  letter-spacing: -0.01em;
+  margin-top: 14px;
+  margin-bottom: 8px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.18s,
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.18s;
+}
+
+@media (min-width: 640px) {
+  .ft-duration {
+    font-size: 24px;
+    margin-top: 18px;
+  }
+}
+
+.ft-supporting-text {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #666673;
+  margin: 0 0 28px 0;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.25s,
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.25s;
+}
+
+@media (min-width: 640px) {
+  .ft-supporting-text {
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+}
+
+.ft-cta-wrapper {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.32s,
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.32s;
+}
+
+.ft-banner-card.is-visible .ft-heading,
+.ft-banner-card.is-visible .ft-duration,
+.ft-banner-card.is-visible .ft-supporting-text,
+.ft-banner-card.is-visible .ft-cta-wrapper {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ft-cta-link {
+  display: inline-flex;
+  text-decoration: none;
+}
+
+.ft-cta-button {
+  font-weight: 600;
+  border-radius: 10px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.ft-cta-button:hover .ft-cta-arrow {
+  transform: translateX(3px);
+}
+
+.ft-cta-arrow {
+  transition: transform 0.2s ease;
+  display: inline-flex;
+}
+
+/* --------------------------------------------------------------------------
+   Right Column: Smartphone Mockup & Soft Coral/Pink Gradient
+   -------------------------------------------------------------------------- */
+.ft-visual-col {
+  flex: 1 1 48%;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  min-height: 280px;
+}
+
+@media (min-width: 768px) {
+  .ft-visual-col {
+    flex: 1 1 50%;
+    justify-content: flex-end;
+    min-height: auto;
+  }
+}
+
+/* Soft gradient behind the phone */
+.ft-gradient-backdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 80% 50%, rgba(244, 122, 32, 0.35) 0%, rgba(217, 28, 138, 0.38) 45%, rgba(253, 242, 248, 0.25) 75%, transparent 100%);
+  opacity: 0.9;
+  z-index: 1;
+}
+
+.ft-phone-wrapper {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  transform: translateY(14px);
+  opacity: 0;
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.2s,
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+}
+
+@media (min-width: 768px) {
+  .ft-phone-wrapper {
+    max-width: 420px;
+    margin-right: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ft-phone-wrapper {
+    max-width: 460px;
+    margin-right: 48px;
+  }
+}
+
+.ft-banner-card.is-visible .ft-phone-wrapper {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ft-phone-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: bottom center;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   Reduced Motion Preferences
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .ft-banner-card,
+  .ft-heading,
+  .ft-duration,
+  .ft-supporting-text,
+  .ft-cta-wrapper,
+  .ft-phone-wrapper {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

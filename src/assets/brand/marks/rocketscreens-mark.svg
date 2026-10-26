@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <defs>
+    <linearGradient id="rocketGradMark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D91C8A" />
+      <stop offset="100%" stop-color="#F47A20" />
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="8" fill="url(#rocketGradMark)" />
+  <path d="M16 6C16 6 21 9.5 21 15C21 16.5 20.2 18.2 19.5 19.2L22 21.5L20.5 23L17.8 21C16.8 21.6 15.5 22 14.5 22C9 22 6 17 6 17C6 17 9 17 12 14.5C14 12.8 15.5 9 16 6Z" fill="white" />
+  <circle cx="15" cy="13" r="1.5" fill="#D91C8A" />
+</svg>

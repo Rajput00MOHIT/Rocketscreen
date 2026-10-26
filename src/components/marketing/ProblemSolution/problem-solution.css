@@ -1,0 +1,234 @@
+/* ==========================================================================
+   Problem vs Solution Section Custom CSS
+   ========================================================================== */
+
+.problem-solution-section {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  padding-top: 72px;
+  padding-bottom: 112px;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .problem-solution-section {
+    padding-top: 96px;
+    padding-bottom: 140px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Section Heading
+   -------------------------------------------------------------------------- */
+.ps-heading-wrapper {
+  text-align: center;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 48px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ps-heading-wrapper.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (min-width: 768px) {
+  .ps-heading-wrapper {
+    margin-bottom: 64px;
+  }
+}
+
+.ps-heading-title {
+  font-size: 32px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #171717;
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .ps-heading-title {
+    font-size: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ps-heading-title {
+    font-size: 48px;
+  }
+}
+
+.ps-heading-line {
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   Comparison Grid & Cards
+   -------------------------------------------------------------------------- */
+.ps-comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .ps-comparison-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+.ps-card {
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid #e3e3e8;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 20px -2px rgba(23, 23, 28, 0.03);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease,
+              opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.ps-card:hover {
+  box-shadow: 0 12px 32px -4px rgba(23, 23, 28, 0.07);
+  border-color: #d4d4d8;
+}
+
+.ps-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Soft atmospheric radial gradient on Solution card */
+.ps-card-solution {
+  background: radial-gradient(circle at 10% 90%, rgba(253, 242, 248, 0.7) 0%, rgba(255, 255, 255, 0.95) 70%, #ffffff 100%);
+}
+
+.ps-card-problem {
+  background-color: #ffffff;
+}
+
+/* Card Header Content Area */
+.ps-card-header {
+  padding: 32px 28px 24px 28px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 640px) {
+  .ps-card-header {
+    padding: 40px 36px 28px 36px;
+  }
+}
+
+.ps-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #d91c8a;
+  background-color: #fdf2f8;
+  border: 1px solid #fbcfe8;
+  border-radius: 9999px;
+  margin-bottom: 20px;
+  letter-spacing: 0.01em;
+}
+
+.ps-card-description {
+  font-size: 16px;
+  line-height: 1.55;
+  color: #666673;
+  margin: 0;
+  max-width: 440px;
+}
+
+@media (min-width: 640px) {
+  .ps-card-description {
+    font-size: 17px;
+  }
+}
+
+.ps-text-emphasized {
+  color: #171717;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   Product Preview Area
+   -------------------------------------------------------------------------- */
+.ps-preview-wrapper {
+  position: relative;
+  width: 100%;
+  margin-top: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+  min-height: 280px;
+}
+
+@media (min-width: 640px) {
+  .ps-preview-wrapper {
+    padding-left: 32px;
+    padding-right: 32px;
+    min-height: 330px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ps-preview-wrapper {
+    min-height: 370px;
+  }
+}
+
+.ps-preview-image {
+  width: 100%;
+  height: auto;
+  max-width: 520px;
+  object-fit: contain;
+  object-position: bottom center;
+  display: block;
+  transform: translateY(8px);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ps-card.is-visible .ps-preview-image {
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   Reduced Motion Preferences
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .ps-heading-wrapper,
+  .ps-card,
+  .ps-preview-image {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

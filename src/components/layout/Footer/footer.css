@@ -1,0 +1,255 @@
+/* ==========================================================================
+   Footer Component Custom CSS
+   ========================================================================== */
+
+.rs-footer {
+  position: relative;
+  width: 100%;
+  background-color: #f8f8fa;
+  border-top: 1px solid #e3e3e8;
+  color: #666673;
+}
+
+/* --------------------------------------------------------------------------
+   Main Footer Grid (Desktop 4 Columns: ~36% Brand Logo + 3 Columns)
+   -------------------------------------------------------------------------- */
+.rs-footer-main {
+  padding-top: 60px;
+  padding-bottom: 48px;
+}
+
+@media (min-width: 1024px) {
+  .rs-footer-main {
+    padding-top: 70px;
+    padding-bottom: 46px;
+  }
+}
+
+.rs-footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+@media (min-width: 640px) {
+  .rs-footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .rs-footer-grid {
+    grid-template-columns: 36% 1fr 1fr 1.3fr;
+    gap: 24px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Column 1: Footer Brand Logo
+   -------------------------------------------------------------------------- */
+.rs-footer-brand {
+  display: flex;
+  align-items: flex-start;
+}
+
+@media (min-width: 1024px) {
+  .rs-footer-brand {
+    padding-top: 2px;
+  }
+}
+
+.rs-footer-logo-link {
+  display: inline-block;
+  outline: none;
+  transition: opacity 0.2s ease;
+}
+
+.rs-footer-logo-link:hover {
+  opacity: 0.85;
+}
+
+.rs-footer-logo-link:focus-visible {
+  outline: 2px solid #d91c8a;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.rs-footer-logo-img {
+  width: 150px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* --------------------------------------------------------------------------
+   Columns 2 & 3: Link Columns (Company & Resources)
+   -------------------------------------------------------------------------- */
+.rs-footer-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.rs-footer-heading {
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 700;
+  color: #171717;
+  letter-spacing: -0.01em;
+  margin: 0 0 16px 0;
+}
+
+.rs-footer-links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rs-footer-link {
+  font-size: 13px;
+  line-height: 1.4;
+  color: #666673;
+  text-decoration: none;
+  transition: color 0.15s ease;
+  outline: none;
+}
+
+.rs-footer-link:hover {
+  color: #d91c8a;
+}
+
+.rs-footer-link:focus-visible {
+  outline: 2px solid #d91c8a;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Column 4: Contact Information
+   -------------------------------------------------------------------------- */
+.rs-footer-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #666673;
+}
+
+.rs-footer-contact-item {
+  margin: 0;
+}
+
+.rs-footer-email-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  color: #666673;
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.15s ease;
+  outline: none;
+}
+
+.rs-footer-email-link:hover {
+  color: #d91c8a;
+}
+
+.rs-footer-email-link:focus-visible {
+  outline: 2px solid #d91c8a;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.rs-footer-email-icon {
+  width: 16px;
+  height: 16px;
+  color: #d91c8a;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Footer Bottom Bar: Copyright & Legal Links
+   -------------------------------------------------------------------------- */
+.rs-footer-bottom {
+  border-top: 1px solid #e3e3e8;
+  padding-top: 20px;
+  padding-bottom: 24px;
+}
+
+.rs-footer-bottom-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+@media (min-width: 768px) {
+  .rs-footer-bottom-inner {
+    flex-direction: row;
+    gap: 24px;
+  }
+}
+
+.rs-footer-copyright {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #8e8e93;
+  margin: 0;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .rs-footer-copyright {
+    text-align: left;
+  }
+}
+
+.rs-footer-legal-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rs-footer-legal-link {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #8e8e93;
+  text-decoration: none;
+  transition: color 0.15s ease;
+  outline: none;
+}
+
+.rs-footer-legal-link:hover {
+  color: #d91c8a;
+}
+
+.rs-footer-legal-link:focus-visible {
+  outline: 2px solid #d91c8a;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.rs-footer-legal-divider {
+  width: 1px;
+  height: 12px;
+  background-color: #d4d4d8;
+  display: inline-block;
+}
+
+/* --------------------------------------------------------------------------
+   Reduced Motion Preferences
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .rs-footer,
+  .rs-footer-link,
+  .rs-footer-email-link,
+  .rs-footer-legal-link {
+    transition: none !important;
+  }
+}

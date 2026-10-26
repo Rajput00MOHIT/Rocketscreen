@@ -1,0 +1,5 @@
+/**
+ * Content Feature Module
+ */
+
+export {};

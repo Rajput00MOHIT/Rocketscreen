@@ -1,0 +1,226 @@
+/* ==========================================================================
+   Connect Apps Integration Section Custom CSS
+   ========================================================================== */
+
+.connect-apps-section {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  padding-top: 60px;
+  padding-bottom: 80px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .connect-apps-section {
+    padding-top: 80px;
+    padding-bottom: 104px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .connect-apps-section {
+    padding-top: 100px;
+    padding-bottom: 128px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2-Column Layout Grid
+   -------------------------------------------------------------------------- */
+.connect-apps-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .connect-apps-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    column-gap: clamp(32px, 5vw, 64px);
+  }
+}
+
+@media (min-width: 1280px) {
+  .connect-apps-grid {
+    column-gap: 80px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Text Column
+   -------------------------------------------------------------------------- */
+.connect-apps-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.connect-apps-section.is-visible .connect-apps-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Category Badge Pill */
+.connect-apps-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fdf2f8; /* Soft pink tint */
+  color: #171717;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+}
+
+/* Heading */
+.connect-apps-heading {
+  font-size: 32px;
+  line-height: 1.18;
+  font-weight: 700;
+  color: #171717;
+  letter-spacing: -0.028em;
+  margin: 0 0 16px 0;
+  text-wrap: balance;
+}
+
+@media (min-width: 640px) {
+  .connect-apps-heading {
+    font-size: 38px;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .connect-apps-heading {
+    font-size: 44px;
+    line-height: 1.14;
+  }
+}
+
+/* Description */
+.connect-apps-description {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #666673;
+  margin: 0 0 28px 0;
+  max-width: 480px;
+}
+
+@media (min-width: 640px) {
+  .connect-apps-description {
+    font-size: 16px;
+    line-height: 1.62;
+    margin-bottom: 32px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Filter / Action Pill Tags (Buttons)
+   -------------------------------------------------------------------------- */
+.connect-apps-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.connect-apps-tag-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px;
+  background-color: #ffffff;
+  color: #4b4b57;
+  border: 1px solid #dcdce1;
+  border-radius: 9999px;
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.2;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.connect-apps-tag-btn:hover {
+  color: #171717;
+  border-color: #171717;
+  background-color: #fafafb;
+  transform: translateY(-1px);
+}
+
+.connect-apps-tag-btn:active {
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   Visual Illustration Column
+   -------------------------------------------------------------------------- */
+.connect-apps-visual {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.1s,
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+}
+
+.connect-apps-section.is-visible .connect-apps-visual {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.connect-apps-illustration-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.connect-apps-illustration-wrapper:hover {
+  transform: translateY(-3px);
+}
+
+.connect-apps-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 16px;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.05));
+}
+
+/* --------------------------------------------------------------------------
+   Prefers-Reduced-Motion
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .connect-apps-content,
+  .connect-apps-visual,
+  .connect-apps-illustration-wrapper {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

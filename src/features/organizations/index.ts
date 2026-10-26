@@ -1,0 +1,5 @@
+/**
+ * Organizations Feature Module
+ */
+
+export {};

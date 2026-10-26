@@ -1,0 +1,5 @@
+/**
+ * Playlists Feature Module
+ */
+
+export {};

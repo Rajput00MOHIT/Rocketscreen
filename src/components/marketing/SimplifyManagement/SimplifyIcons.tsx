@@ -1,0 +1,44 @@
+import React from 'react';
+
+export interface ArrowIconProps {
+  className?: string;
+  size?: number;
+}
+
+export function PinkArrowIcon({ className = '', size = 20 }: ArrowIconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={Math.round((size * 15) / 21)}
+      viewBox="0 0 21 15"
+      fill="none"
+      aria-hidden="true"
+      className={className}
+    >
+      <path
+        d="M1 6.36328C0.447715 6.36328 0 6.811 0 7.36328C0 7.91557 0.447715 8.36328 1 8.36328V7.36328V6.36328ZM1 7.36328V8.36328H20V7.36328V6.36328H1V7.36328ZM20.7071 8.07039C21.0976 7.67986 21.0976 7.0467 20.7071 6.65617L14.3431 0.292213C13.9526 -0.0983109 13.3195 -0.0983109 12.9289 0.292213C12.5384 0.682738 12.5384 1.3159 12.9289 1.70643L18.5858 7.36328L12.9289 13.0201C12.5384 13.4107 12.5384 14.0438 12.9289 14.4343C13.3195 14.8249 13.9526 14.8249 14.3431 14.4343L20.7071 8.07039Z"
+        fill="#D91C8B"
+      />
+    </svg>
+  );
+}
+
+export function WhiteArrowIcon({ className = '', size = 20 }: ArrowIconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={Math.round((size * 15) / 21)}
+      viewBox="0 0 21 15"
+      fill="none"
+      aria-hidden="true"
+      className={className}
+    >
+      <path
+        d="M1 6.36328C0.447715 6.36328 0 6.811 0 7.36328C0 7.91557 0.447715 8.36328 1 8.36328V7.36328V6.36328ZM1 7.36328V8.36328H20V7.36328V6.36328H1V7.36328ZM20.7071 8.07039C21.0976 7.67986 21.0976 7.0467 20.7071 6.65617L14.3431 0.292213C13.9526 -0.0983109 13.3195 -0.0983109 12.9289 0.292213C12.5384 0.682738 12.5384 1.3159 12.9289 1.70643L18.5858 7.36328L12.9289 13.0201C12.5384 13.4107 12.5384 14.0438 12.9289 14.4343C13.3195 14.8249 13.9526 14.8249 14.3431 14.4343L20.7071 8.07039Z"
+        fill="white"
+      />
+    </svg>
+  );
+}

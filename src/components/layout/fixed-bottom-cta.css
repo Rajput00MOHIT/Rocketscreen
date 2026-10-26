@@ -1,0 +1,160 @@
+/* ==========================================================================
+   Fixed Bottom CTA Bar Custom CSS
+   ========================================================================== */
+
+.rs-fixed-bottom-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 40;
+  background-color: #ffffff;
+  border-top: 1px solid #e3e3e8;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+  padding-top: 14px;
+  padding-bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+}
+
+.rs-fixed-bottom-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+}
+
+/* Promotional message */
+.rs-fixed-bottom-message {
+  font-size: 14px;
+  line-height: 1.45;
+  color: #171717;
+  font-weight: 500;
+  margin: 0;
+}
+
+@media (min-width: 1024px) {
+  .rs-fixed-bottom-message {
+    font-size: 15px;
+  }
+}
+
+.rs-fixed-bottom-highlight {
+  color: #d91c8a;
+  font-weight: 600;
+}
+
+/* Right side group: Badges + Divider + Button */
+.rs-fixed-bottom-controls {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 12px;
+}
+
+@media (min-width: 1024px) {
+  .rs-fixed-bottom-controls {
+    gap: 16px;
+  }
+}
+
+/* App Store badges group */
+.rs-fixed-bottom-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (min-width: 640px) {
+  .rs-fixed-bottom-badges {
+    gap: 10px;
+  }
+}
+
+.rs-store-badge-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  line-height: 0;
+}
+
+.rs-store-badge-link:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+.rs-store-badge-img {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+@media (min-width: 1024px) {
+  .rs-store-badge-img {
+    height: 40px;
+  }
+}
+
+/* Vertical divider */
+.rs-fixed-bottom-divider {
+  width: 1px;
+  height: 28px;
+  background-color: #e3e3e8;
+  flex-shrink: 0;
+}
+
+/* CTA button link wrapper */
+.rs-fixed-bottom-btn-link {
+  display: inline-flex;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.rs-fixed-bottom-btn {
+  white-space: nowrap;
+}
+
+/* Responsive breakdowns */
+@media (max-width: 860px) {
+  .rs-fixed-bottom-cta {
+    padding-top: 10px;
+    padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .rs-fixed-bottom-message {
+    font-size: 13px;
+  }
+
+  .rs-store-badge-img {
+    height: 34px;
+  }
+
+  .rs-fixed-bottom-divider {
+    height: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .rs-fixed-bottom-inner {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .rs-fixed-bottom-message {
+    width: 100%;
+    font-size: 12.5px;
+    text-align: center;
+  }
+
+  .rs-fixed-bottom-controls {
+    width: 100%;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .rs-fixed-bottom-divider {
+    display: none;
+  }
+}

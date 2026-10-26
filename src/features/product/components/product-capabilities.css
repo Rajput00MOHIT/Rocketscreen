@@ -1,0 +1,442 @@
+/* ==========================================================================
+   Product Capabilities Section
+   ========================================================================== */
+
+.product-capabilities-section {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 60px 24px 96px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.product-capabilities-section *,
+.product-capabilities-section *::before,
+.product-capabilities-section *::after {
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .product-capabilities-section {
+    padding-top: 80px;
+    padding-bottom: 120px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .product-capabilities-section {
+    padding-top: 100px;
+    padding-bottom: 160px;
+  }
+}
+
+/* ==========================================================================
+   Section Introduction
+   ========================================================================== */
+
+.pc-intro-wrapper {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto 64px;
+  text-align: center;
+
+  opacity: 0;
+  transform: translateY(16px);
+
+  transition:
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pc-intro-wrapper.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (min-width: 768px) {
+  .pc-intro-wrapper {
+    margin-bottom: 84px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pc-intro-wrapper {
+    margin-bottom: 104px;
+  }
+}
+
+.pc-intro-heading {
+  margin: 0;
+  color: #171717;
+  font-size: 32px;
+  line-height: 1.18;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+@media (min-width: 640px) {
+  .pc-intro-heading {
+    font-size: 40px;
+    line-height: 1.16;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pc-intro-heading {
+    font-size: 48px;
+    line-height: 1.15;
+  }
+}
+
+/* ==========================================================================
+   Capability Rows Container
+   ========================================================================== */
+
+.pc-rows-container {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+
+  width: 100%;
+  max-width: 1180px;
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .pc-rows-container {
+    gap: 56px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pc-rows-container {
+    gap: 64px;
+  }
+}
+
+/* ==========================================================================
+   Individual Capability Row
+   ========================================================================== */
+
+.pc-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px;
+
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+}
+
+/* Desktop: consistent columns for both alternating rows */
+
+@media (min-width: 768px) {
+  .pc-row {
+    grid-template-columns:
+      minmax(0, 1fr) minmax(0, 1fr);
+
+    column-gap: clamp(32px, 5vw, 64px);
+    row-gap: 0;
+    align-items: center;
+  }
+
+  /* Row 1: Text left, visual right */
+
+  .pc-row-text-left .pc-col-content {
+    grid-column: 1;
+    grid-row: 1;
+    padding: 0;
+  }
+
+  .pc-row-text-left .pc-col-visual {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  /* Row 2 and alternating rows:
+     Visual left, text right */
+
+  .pc-row-text-right .pc-col-visual {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .pc-row-text-right .pc-col-content {
+    grid-column: 2;
+    grid-row: 1;
+    padding: 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .pc-row {
+    column-gap: 72px;
+  }
+}
+
+/* ==========================================================================
+   Text Content Column
+   ========================================================================== */
+
+.pc-col-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  width: 100%;
+  min-width: 0;
+  align-self: center;
+  text-align: left;
+
+  opacity: 0;
+  transform: translateY(16px);
+
+  transition:
+    opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pc-row.is-visible .pc-col-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Category Label
+   ========================================================================== */
+
+.pc-category-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 0 14px;
+  padding: 6px 14px;
+
+  background-color: #f1f2f4;
+  color: #171717;
+
+  border-radius: 9999px;
+
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+@media (min-width: 640px) {
+  .pc-category-label {
+    margin-bottom: 16px;
+    padding: 7px 16px;
+    font-size: 13px;
+  }
+}
+
+/* ==========================================================================
+   Capability Heading
+   ========================================================================== */
+
+.pc-capability-heading {
+  margin: 0 0 12px;
+
+  color: #171717;
+  font-size: 26px;
+  line-height: 1.22;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+
+  text-wrap: balance;
+}
+
+@media (min-width: 640px) {
+  .pc-capability-heading {
+    margin-bottom: 14px;
+    font-size: 30px;
+    line-height: 1.2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pc-capability-heading {
+    font-size: 34px;
+    line-height: 1.18;
+  }
+}
+
+/* ==========================================================================
+   Capability Description
+   ========================================================================== */
+
+.pc-capability-description {
+  max-width: 440px;
+  margin: 0;
+
+  color: #666673;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+@media (min-width: 640px) {
+  .pc-capability-description {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+}
+
+/* ==========================================================================
+   Visual Column
+   ========================================================================== */
+
+.pc-col-visual {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-width: 0;
+  align-self: center;
+
+  opacity: 0;
+  transform: translateY(20px);
+
+  transition:
+    opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.1s,
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+}
+
+.pc-row.is-visible .pc-col-visual {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Mockup Card Wrapper
+   ========================================================================== */
+
+.pc-mockup-wrapper {
+  position: relative;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  width: 100%;
+  max-width: 560px;
+  min-width: 0;
+  margin: 0 auto;
+  padding: 24px 20px 0;
+
+  background-color: #fafafb;
+  border: 1px solid #e9eaec;
+  border-radius: 8px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 4px 20px -2px rgba(23, 23, 28, 0.03),
+    0 1px 3px rgba(23, 23, 28, 0.02);
+
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 640px) {
+  .pc-mockup-wrapper {
+    padding: 32px 28px 0;
+    border-radius: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pc-mockup-wrapper {
+    padding: 36px 32px 0;
+    border-radius: 32px;
+  }
+}
+
+.pc-mockup-wrapper:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 28px -4px rgba(23, 23, 28, 0.06),
+    0 2px 6px rgba(23, 23, 28, 0.03);
+}
+
+/* ==========================================================================
+   Mockup Image
+   ========================================================================== */
+
+.pc-mockup-img {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  flex-shrink: 0;
+
+  object-fit: contain;
+
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.04));
+}
+
+/* ==========================================================================
+   Tablet and Mobile Layout
+   ========================================================================== */
+
+@media (max-width: 767px) {
+  .product-capabilities-section {
+    padding-inline: 20px;
+  }
+
+  .pc-row {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 28px;
+  }
+
+  .pc-col-content {
+    width: 100%;
+    padding: 0;
+  }
+
+  .pc-col-visual {
+    width: 100%;
+  }
+
+  .pc-mockup-wrapper {
+    width: 100%;
+    max-width: 560px;
+    padding: 24px 20px 0;
+    border-radius: 24px;
+  }
+
+  .pc-capability-description {
+    max-width: 100%;
+  }
+}
+
+/* ==========================================================================
+   Reduced Motion Accessibility
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .pc-intro-wrapper,
+  .pc-col-content,
+  .pc-col-visual,
+  .pc-mockup-wrapper {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

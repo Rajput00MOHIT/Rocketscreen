@@ -1,0 +1,330 @@
+/* ==========================================================================
+   Player Types Section Custom CSS
+   ========================================================================== */
+
+.player-types-section {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  padding-top: 80px;
+  padding-bottom: 120px;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .player-types-section {
+    padding-top: 96px;
+    padding-bottom: 144px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Section Heading
+   -------------------------------------------------------------------------- */
+.pt-heading-wrapper {
+  text-align: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 48px;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 768px) {
+  .pt-heading-wrapper {
+    margin-bottom: 56px;
+  }
+}
+
+.pt-heading-title {
+  font-size: 32px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #171717;
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .pt-heading-title {
+    font-size: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pt-heading-title {
+    font-size: 48px;
+  }
+}
+
+.pt-heading-line {
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   3-Card Selection Grid
+   -------------------------------------------------------------------------- */
+.pt-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s,
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+}
+
+@media (min-width: 768px) {
+  .pt-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+.pt-card-btn {
+  background-color: #ffffff;
+  border: 1px solid #e3e3e8;
+  border-radius: 16px;
+  padding: 28px 24px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+  box-shadow: 0 2px 10px rgba(23, 23, 28, 0.02);
+}
+
+.pt-card-btn:focus-visible {
+  outline: 2px solid #d91c8a;
+  outline-offset: 3px;
+}
+
+.pt-card-btn:hover {
+  border-color: #d4d4d8;
+  box-shadow: 0 4px 16px rgba(23, 23, 28, 0.04);
+}
+
+/* Selected Card Styling */
+.pt-card-btn.is-active {
+  background-color: #fdf2f8;
+  border-color: #fbcfe8;
+  box-shadow: 0 6px 20px -2px rgba(217, 28, 138, 0.08);
+}
+
+.pt-card-title {
+  display: block;
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: 700;
+  color: #171717;
+  letter-spacing: -0.02em;
+  margin: 0 0 10px 0;
+}
+
+@media (min-width: 640px) {
+  .pt-card-title {
+    font-size: 22px;
+  }
+}
+
+.pt-card-description {
+  display: block;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #666673;
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .pt-card-description {
+    font-size: 15px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Central Connection Diagram with User-Supplied SVGs
+   -------------------------------------------------------------------------- */
+.pt-diagram-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 160px;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s,
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+}
+
+.pt-diagram-svg-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.pt-diagram-branch {
+  position: relative;
+  height: 100%;
+  padding-top: 20PX;
+}
+
+.pt-diagram-branch-left {
+  flex: 1 1 50%;
+  padding-right: 12px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pt-diagram-branch-center {
+  flex: 0 0 2px;
+  display: flex;
+  justify-content: center;
+}
+
+.pt-diagram-branch-right {
+  flex: 1 1 50%;
+  padding-left: 12PX;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.pt-branch-svg {
+  width: 100%;
+  max-width: 420px;
+  height: 100%;
+  display: block;
+}
+
+.pt-center-svg {
+  width: 2px;
+  height: 100%;
+  display: block;
+}
+
+.pt-brand-node-box {
+  position: relative;
+  z-index: 3;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(217, 28, 138, 0.25);
+  transition: transform 0.3s ease;
+  padding: 4px;
+}
+
+.pt-brand-node-box:hover {
+  transform: scale(1.08);
+}
+
+.pt-brand-node-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+/* --------------------------------------------------------------------------
+   Dotted Dashboard Preview Panel
+   -------------------------------------------------------------------------- */
+.pt-preview-panel {
+  position: relative;
+  width: 100%;
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 24px;
+  border: 1px solid #fbcfe8;
+  overflow: hidden;
+  height: 480px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background-color: #fdf5f9;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.25s,
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.25s;
+}
+
+@media (min-width: 640px) {
+  .pt-preview-panel {
+    height: 540px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pt-preview-panel {
+    height: 600px;
+  }
+}
+
+.pt-bg-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.pt-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.pt-mockup-wrapper {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 960px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  transform: translateY(32px);
+}
+
+.pt-mockup-img {
+  width: 100%;
+  height: auto;
+  max-width: 920px;
+  object-fit: contain;
+  object-position: bottom center;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   Reduced Motion Preferences
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+
+  .pt-heading-wrapper,
+  .pt-cards-grid,
+  .pt-diagram-wrapper,
+  .pt-preview-panel,
+  .pt-mockup-img {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

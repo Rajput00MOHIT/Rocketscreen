@@ -1,0 +1,5 @@
+/**
+ * Channels Feature Module
+ */
+
+export {};

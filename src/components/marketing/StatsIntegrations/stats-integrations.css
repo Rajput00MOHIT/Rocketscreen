@@ -1,0 +1,239 @@
+/* ==========================================================================
+   Stats & Integration Logos Section Custom CSS
+   ========================================================================== */
+
+.stats-integrations-section {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  padding-top: 64px;
+  padding-bottom: 96px;
+  border-bottom: 1px solid #f4f4f5;
+}
+
+@media (min-width: 768px) {
+  .stats-integrations-section {
+    padding-top: 80px;
+    padding-bottom: 112px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Statistics Row
+   -------------------------------------------------------------------------- */
+.stats-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.stat-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 16px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stat-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stat-value {
+  font-size: 38px;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #171717;
+  margin-bottom: 6px;
+}
+
+@media (min-width: 640px) {
+  .stat-value {
+    font-size: 46px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .stat-value {
+    font-size: 52px;
+  }
+}
+
+.stat-label {
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 400;
+  color: #666673;
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .stat-label {
+    font-size: 15px;
+  }
+}
+
+/* Vertical Divider between Stats */
+.stat-separator {
+  width: 1px;
+  height: 52px;
+  background-color: #e3e3e8;
+  flex-shrink: 0;
+  align-self: center;
+  opacity: 0;
+  transition: opacity 0.5s ease 0.2s;
+}
+
+.stat-separator.is-visible {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Horizontal Divider
+   -------------------------------------------------------------------------- */
+.stats-integrations-divider {
+  width: 100%;
+  max-width: 1200px;
+  height: 1px;
+  background-color: #e3e3e8;
+  margin-top: 48px;
+  margin-bottom: 48px;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+}
+
+@media (min-width: 768px) {
+  .stats-integrations-divider {
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Integration Partners Infinite Auto-Scrolling Marquee
+   -------------------------------------------------------------------------- */
+.integrations-marquee-container {
+  width: 100%;
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  position: relative;
+  /* Soft gradient fade mask on left and right edges */
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.integrations-marquee-container.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.integrations-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 56px;
+  width: max-content;
+  animation: rs-marquee-scroll 24s linear infinite;
+  will-change: transform;
+}
+
+/* Pause scroll smoothly on user hover for enhanced micro-interaction */
+.integrations-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes rs-marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.integration-logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.integration-logo-item:hover {
+  transform: translateY(-2px) scale(1.05);
+}
+
+.integration-logo-img {
+  height: 28px;
+  width: auto;
+  max-width: 130px;
+  object-fit: contain;
+  /* Grayscale filter with subtle opacity matching Figma */
+  filter: grayscale(100%) contrast(90%);
+  opacity: 0.65;
+  transition: filter 0.25s ease, opacity 0.25s ease;
+}
+
+@media (min-width: 640px) {
+  .integration-logo-img {
+    height: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .integration-logo-img {
+    height: 36px;
+  }
+}
+
+/* Hover micro-interaction: subtle return to natural tone / full contrast */
+.integration-logo-item:hover .integration-logo-img {
+  filter: grayscale(0%) contrast(100%);
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Reduced Motion Preferences
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .stat-item,
+  .stat-separator,
+  .integration-logo-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

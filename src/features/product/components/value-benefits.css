@@ -1,0 +1,242 @@
+/* ==========================================================================
+   Get More Value from Your Digital Displays Section Custom CSS
+   ========================================================================== */
+
+.value-benefits-section {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  padding-top: 72px;
+  padding-bottom: 96px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .value-benefits-section {
+    padding-top: 84px;
+    padding-bottom: 112px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .value-benefits-section {
+    padding-top: 96px;
+    padding-bottom: 128px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2-Column Layout (Left: Intro Text, Right: 2x2 Clean Cards Grid)
+   -------------------------------------------------------------------------- */
+.value-benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .value-benefits-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+    column-gap: clamp(36px, 5vw, 72px);
+  }
+}
+
+@media (min-width: 1280px) {
+  .value-benefits-grid {
+    column-gap: 88px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Left Column: Heading & Description
+   -------------------------------------------------------------------------- */
+.value-benefits-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.value-benefits-section.is-visible .value-benefits-intro {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Badge Pill */
+.value-benefits-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fdf2f8; /* Soft pale pink */
+  color: #171717;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+}
+
+/* Heading */
+.value-benefits-heading {
+  font-size: 32px;
+  line-height: 1.18;
+  font-weight: 700;
+  color: #171717;
+  letter-spacing: -0.028em;
+  margin: 0 0 16px 0;
+  text-wrap: balance;
+}
+
+@media (min-width: 640px) {
+  .value-benefits-heading {
+    font-size: 38px;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .value-benefits-heading {
+    font-size: 44px;
+    line-height: 1.14;
+  }
+}
+
+/* Description */
+.value-benefits-description {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #666673;
+  margin: 0;
+  max-width: 440px;
+}
+
+@media (min-width: 640px) {
+  .value-benefits-description {
+    font-size: 16px;
+    line-height: 1.62;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Right Column: 2x2 Feature Cards Grid
+   -------------------------------------------------------------------------- */
+.value-cards-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  width: 100%;
+}
+
+@media (min-width: 540px) {
+  .value-cards-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .value-cards-container {
+    gap: 20px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Individual Value Card
+   -------------------------------------------------------------------------- */
+.value-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-color: #fafafb;
+  border-radius: 12px;
+  padding: 32px 24px;
+  min-height: 172px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+@media (min-width: 1024px) {
+  .value-card {
+    padding: 36px 28px;
+    min-height: 190px;
+  }
+}
+
+.value-benefits-section.is-visible .value-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.value-card:hover {
+  background-color: #f5f5f7;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(23, 23, 28, 0.04);
+}
+
+/* Icon Box (Pale Pink Square) */
+.value-card-icon-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background-color: #fdf2f8; /* Soft pale pink */
+  color: #171717;
+  margin-bottom: 24px;
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.value-card:hover .value-card-icon-box {
+  transform: scale(1.05);
+  background-color: #fce7f3;
+}
+
+/* Title / Description Text */
+.value-card-text {
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 600;
+  color: #171717;
+  margin: 0;
+  text-align: left;
+  letter-spacing: -0.015em;
+}
+
+@media (min-width: 640px) {
+  .value-card-text {
+    font-size: 17px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Prefers-Reduced-Motion
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .value-benefits-intro,
+  .value-card,
+  .value-card-icon-box {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

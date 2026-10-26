@@ -1,0 +1,5 @@
+/**
+ * Scheduling Feature Module
+ */
+
+export {};
