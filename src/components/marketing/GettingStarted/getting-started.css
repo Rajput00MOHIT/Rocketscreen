@@ -287,6 +287,12 @@
 
 .gs-center-brand-box {
   cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.gs-center-brand-box:hover {
+  transform: scale(1.06);
+  box-shadow: 0 8px 24px rgba(217, 28, 138, 0.18);
 }
 
 .gs-center-brand-img {
@@ -294,8 +300,8 @@
   height: 72px;
   object-fit: contain;
   filter: drop-shadow(0 4px 12px rgba(217, 28, 138, 0.25));
-  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
   will-change: transform;
+  transform-origin: center center;
 }
 
 @media (min-width: 1024px) {
@@ -306,18 +312,15 @@
 }
 
 .gs-center-brand-box:hover .gs-center-brand-img {
-  animation: gs-spin 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+  animation: gs-spin 2s linear infinite;
 }
 
 @keyframes gs-spin {
-  0% {
-    transform: rotate(0deg) scale(1.08);
+  from {
+    transform: rotate(0deg);
   }
-  50% {
-    transform: rotate(180deg) scale(1.12);
-  }
-  100% {
-    transform: rotate(360deg) scale(1.08);
+  to {
+    transform: rotate(360deg);
   }
 }
 
