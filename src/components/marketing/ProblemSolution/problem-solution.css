@@ -30,7 +30,7 @@
   opacity: 0;
   transform: translateY(16px);
   transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .ps-heading-wrapper.is-visible {
@@ -99,8 +99,8 @@
   justify-content: space-between;
   box-shadow: 0 4px 20px -2px rgba(23, 23, 28, 0.03);
   transition: box-shadow 0.3s ease, border-color 0.3s ease,
-              opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
   opacity: 0;
   transform: translateY(20px);
 }
@@ -155,7 +155,7 @@
 }
 
 .ps-card-description {
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.55;
   color: #666673;
   margin: 0;
@@ -179,7 +179,7 @@
 .ps-preview-wrapper {
   position: relative;
   width: 100%;
-  margin-top: auto;
+  margin-top: -100px;
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 0;
@@ -213,7 +213,7 @@
   display: block;
   transform: translateY(8px);
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .ps-card.is-visible .ps-preview-image {
@@ -224,6 +224,7 @@
    Reduced Motion Preferences
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
+
   .ps-heading-wrapper,
   .ps-card,
   .ps-preview-image {

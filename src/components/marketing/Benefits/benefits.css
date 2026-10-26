@@ -1,14 +1,21 @@
 /* ==========================================================================
    Benefits of RocketScreens Section Custom CSS
+   Larger Images — No 3D or Hover Zoom Effects
    ========================================================================== */
 
 .benefits-section {
   position: relative;
   width: 100%;
   background-color: #ffffff;
-  padding-top: 80px;
-  padding-bottom: 120px;
+  padding: 80px 24px 120px;
   overflow: hidden;
+  box-sizing: border-box;
+}
+
+.benefits-section *,
+.benefits-section *::before,
+.benefits-section *::after {
+  box-sizing: border-box;
 }
 
 @media (min-width: 768px) {
@@ -21,16 +28,19 @@
 /* --------------------------------------------------------------------------
    Section Heading
    -------------------------------------------------------------------------- */
+
 .benefits-heading-wrapper {
-  text-align: center;
+  width: 100%;
   max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 56px;
+  margin: 0 auto 48px;
+  text-align: center;
+
   opacity: 0;
   transform: translateY(16px);
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+  transition:
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .benefits-heading-wrapper.is-visible {
@@ -40,17 +50,17 @@
 
 @media (min-width: 768px) {
   .benefits-heading-wrapper {
-    margin-bottom: 72px;
+    margin-bottom: 56px;
   }
 }
 
 .benefits-heading-title {
-  font-size: 32px;
-  line-height: 1.2;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  color: #171717;
   margin: 0;
+  color: #171717;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
 }
 
 @media (min-width: 640px) {
@@ -70,47 +80,55 @@
 }
 
 /* --------------------------------------------------------------------------
-   Unified 2x2 Benefits Grid
+   Benefits Grid
    -------------------------------------------------------------------------- */
+
 .benefits-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  max-width: 1180px;
-  margin-left: auto;
-  margin-right: auto;
   position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
 }
 
 @media (min-width: 768px) {
   .benefits-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 /* --------------------------------------------------------------------------
-   Individual Benefit Cell
+   Individual Benefit Card
    -------------------------------------------------------------------------- */
+
 .benefit-card {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 36px 24px;
+  min-width: 0;
+
+  padding: 32px 24px;
   background-color: #ffffff;
+
   opacity: 0;
   transform: translateY(16px);
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+  transition:
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @media (min-width: 640px) {
   .benefit-card {
-    padding: 44px 36px;
+    padding: 36px 32px;
   }
 }
 
 @media (min-width: 1024px) {
   .benefit-card {
-    padding: 56px 48px;
+    padding: 40px 40px;
   }
 }
 
@@ -119,21 +137,21 @@
   transform: translateY(0);
 }
 
-/* Subtle Grid Dividers between Cells on Desktop/Tablet */
+/* --------------------------------------------------------------------------
+   Grid Dividers
+   -------------------------------------------------------------------------- */
+
 @media (min-width: 768px) {
-  /* Left column cards get vertical divider on right */
   .benefit-card:nth-child(odd) {
     border-right: 1px solid #e3e3e8;
   }
 
-  /* Top row cards get horizontal divider on bottom */
   .benefit-card:nth-child(1),
   .benefit-card:nth-child(2) {
     border-bottom: 1px solid #e3e3e8;
   }
 }
 
-/* Mobile: Single column with horizontal dividers */
 @media (max-width: 767px) {
   .benefit-card:not(:last-child) {
     border-bottom: 1px solid #e3e3e8;
@@ -142,61 +160,95 @@
 
 /* --------------------------------------------------------------------------
    Illustration Area
+   Larger Images — Static, No Hover Animation
    -------------------------------------------------------------------------- */
+
 .benefit-illustration-wrapper {
-  width: 100%;
-  height: 240px;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 32px;
+
+  width: 100%;
+  height: 280px;
+  margin-bottom: 24px;
+
   overflow: hidden;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+  transform: none;
+  transition: none;
 }
 
 @media (min-width: 640px) {
   .benefit-illustration-wrapper {
-    height: 270px;
-    margin-bottom: 36px;
+    height: 320px;
+    margin-bottom: 28px;
   }
 }
 
 @media (min-width: 1024px) {
   .benefit-illustration-wrapper {
-    height: 300px;
-    margin-bottom: 40px;
+    height: 360px;
+    margin-bottom: 30px;
   }
 }
 
-.benefit-card:hover .benefit-illustration-wrapper {
-  transform: translateY(-3px);
+@media (min-width: 1280px) {
+  .benefit-illustration-wrapper {
+    height: 380px;
+  }
 }
 
+/* Illustration image */
+
 .benefit-illustration-img {
-  width: 100%;
-  max-width: 380px;
-  height: 100%;
-  object-fit: contain;
   display: block;
+
+  width: 100%;
+  max-width: 540px;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center;
+
+  transform: none;
+  filter: none;
+  transition: none;
 }
 
 @media (min-width: 1024px) {
   .benefit-illustration-img {
-    max-width: 420px;
+    max-width: 580px;
   }
 }
 
+/* Explicitly disable all hover effects */
+
+.benefit-card:hover .benefit-illustration-wrapper,
+.benefit-card:hover .benefit-illustration-img,
+.benefit-card:hover .benefit-title,
+.benefit-card:hover .benefit-description {
+  transform: none;
+  filter: none;
+  transition: none;
+}
+
 /* --------------------------------------------------------------------------
-   Typography
+   Benefit Typography
    -------------------------------------------------------------------------- */
+
 .benefit-title {
-  font-size: 22px;
-  line-height: 1.3;
-  font-weight: 700;
-  letter-spacing: -0.025em;
+  margin: 0 0 10px;
+
   color: #171717;
-  margin: 0 0 10px 0;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+
   text-align: left;
+  transform: none;
+  transition: none;
 }
 
 @media (min-width: 640px) {
@@ -206,12 +258,16 @@
 }
 
 .benefit-description {
+  max-width: 380px;
+  margin: 0;
+
+  color: #666673;
   font-size: 15px;
   line-height: 1.6;
-  color: #666673;
-  margin: 0;
-  max-width: 380px;
+
   text-align: left;
+  transform: none;
+  transition: none;
 }
 
 @media (min-width: 640px) {
@@ -221,14 +277,63 @@
 }
 
 /* --------------------------------------------------------------------------
-   Reduced Motion Preferences
+   Mobile Layout
    -------------------------------------------------------------------------- */
-@media (prefers-reduced-motion: reduce) {
-  .benefits-heading-wrapper,
-  .benefit-card,
+
+@media (max-width: 639px) {
+  .benefits-section {
+    padding: 56px 20px 72px;
+  }
+
+  .benefits-heading-wrapper {
+    margin-bottom: 32px;
+  }
+
+  .benefits-heading-title {
+    font-size: clamp(28px, 7vw, 34px);
+  }
+
+  .benefit-card {
+    padding: 24px 12px;
+  }
+
   .benefit-illustration-wrapper {
+    height: 280px;
+    margin-bottom: 22px;
+  }
+
+  .benefit-illustration-img {
+    max-width: 100%;
+  }
+
+  .benefit-title {
+    font-size: 21px;
+  }
+
+  .benefit-description {
+    font-size: 14px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Reduced Motion Accessibility
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .benefits-heading-wrapper,
+  .benefit-card {
     opacity: 1 !important;
     transform: none !important;
+    transition: none !important;
+  }
+
+  .benefit-illustration-wrapper,
+  .benefit-illustration-img,
+  .benefit-title,
+  .benefit-description {
+    transform: none !important;
+    filter: none !important;
     transition: none !important;
   }
 }
