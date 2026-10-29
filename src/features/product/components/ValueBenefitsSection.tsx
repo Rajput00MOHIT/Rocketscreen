@@ -13,6 +13,8 @@ import './value-benefits.css';
 export interface ValueBenefitItem {
   id: string;
   icon: React.ReactNode;
+  titleLine1: string;
+  titleLine2: string;
   text: string;
   delayMs: number;
 }
@@ -21,24 +23,32 @@ export const VALUE_BENEFITS_DATA: readonly ValueBenefitItem[] = [
   {
     id: 'simplify-updates',
     icon: <SimplifyIcon size={26} />,
+    titleLine1: 'Simplify content',
+    titleLine2: 'updates.',
     text: 'Simplify content updates.',
     delayMs: 120,
   },
   {
     id: 'organize-content',
     icon: <OrganizeIcon size={26} />,
+    titleLine1: 'Organize content',
+    titleLine2: 'and screens.',
     text: 'Organize content and screens.',
     delayMs: 200,
   },
   {
     id: 'publish-remotely',
     icon: <PublishRemotelyIcon size={26} />,
+    titleLine1: 'Publish updates',
+    titleLine2: 'remotely.',
     text: 'Publish updates remotely.',
     delayMs: 280,
   },
   {
     id: 'choose-players',
     icon: <ChoosePlayersIcon size={26} />,
+    titleLine1: 'Choose players',
+    titleLine2: 'and content.',
     text: 'Choose players and content.',
     delayMs: 360,
   },
@@ -101,7 +111,10 @@ export function ValueBenefitsSection({
           {/* Left Column: Heading & Description */}
           <div className="value-benefits-intro">
             <span className="value-benefits-badge">{badge}</span>
-            <h2 className="value-benefits-heading">{heading}</h2>
+            <h2 className="value-benefits-heading">
+              <span className="value-benefits-heading-line">Get More Value from</span>
+              <span className="value-benefits-heading-line">Your Digital Displays</span>
+            </h2>
             <p className="value-benefits-description">{description}</p>
           </div>
 
@@ -116,7 +129,12 @@ export function ValueBenefitsSection({
                 }}
               >
                 <div className="value-card-icon-box">{item.icon}</div>
-                <p className="value-card-text">{item.text}</p>
+                <h3 className="value-card-text">
+                  <span className="value-card-text-line">{item.titleLine1 || item.text}</span>
+                  {item.titleLine2 && (
+                    <span className="value-card-text-line">{item.titleLine2}</span>
+                  )}
+                </h3>
               </div>
             ))}
           </div>

@@ -11,22 +11,33 @@ export interface TestimonialItem {
 
 export interface TestimonialCardProps {
   testimonial: TestimonialItem;
+  direction?: 'next' | 'prev';
+  animKey?: string | number;
 }
 
-export function TestimonialCard({ testimonial }: TestimonialCardProps) {
+export function TestimonialCard({
+  testimonial,
+  direction = 'next',
+  animKey,
+}: TestimonialCardProps) {
   return (
     <div className="ts-card-col">
-      <p className="ts-quote-text">“{testimonial.quote}”</p>
+      <div
+        key={animKey ?? testimonial.id}
+        className={`ts-card-anim-wrapper ts-slide-${direction}`}
+      >
+        <p className="ts-quote-text">“{testimonial.quote}”</p>
 
-      <div className="ts-profile-row">
-        <Image
-          src={testimonial.avatar}
-          alt={`${testimonial.name} portrait`}
-          className="ts-avatar-img"
-        />
-        <div className="ts-profile-info">
-          <span className="ts-profile-name">{testimonial.name}</span>
-          <span className="ts-profile-role">{testimonial.role}</span>
+        <div className="ts-profile-row">
+          <Image
+            src={testimonial.avatar}
+            alt={`${testimonial.name} portrait`}
+            className="ts-avatar-img"
+          />
+          <div className="ts-profile-info">
+            <span className="ts-profile-name">{testimonial.name}</span>
+            <span className="ts-profile-role">{testimonial.role}</span>
+          </div>
         </div>
       </div>
     </div>

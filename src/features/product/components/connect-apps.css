@@ -33,7 +33,10 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 40px;
+  border: 1px solid rgba(0, 0, 0, 0.047);
+
   align-items: center;
+  padding: 20px;
   max-width: 1180px;
   margin-left: auto;
   margin-right: auto;
@@ -63,7 +66,7 @@
   opacity: 0;
   transform: translateY(16px);
   transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .connect-apps-section.is-visible .connect-apps-content {
@@ -76,7 +79,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #fdf2f8; /* Soft pink tint */
+  background-color: #fdf2f8;
+  /* Soft pink tint */
   color: #171717;
   font-size: 13px;
   font-weight: 500;
@@ -181,7 +185,7 @@
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.1s,
-              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
 }
 
 .connect-apps-section.is-visible .connect-apps-visual {
@@ -209,13 +213,13 @@
   display: block;
   object-fit: contain;
   border-radius: 16px;
-  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.05));
 }
 
 /* --------------------------------------------------------------------------
    Prefers-Reduced-Motion
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
+
   .connect-apps-content,
   .connect-apps-visual,
   .connect-apps-illustration-wrapper {

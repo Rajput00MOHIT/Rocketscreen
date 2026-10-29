@@ -13,7 +13,7 @@ export function CarouselControls({ onPrev, onNext }: CarouselControlsProps) {
         type="button"
         onClick={onPrev}
         className="ts-nav-btn"
-        aria-label="Previous testimonials"
+        aria-label="Previous testimonial"
       >
         <Icon name="ArrowLeft" size={18} />
       </button>
@@ -22,7 +22,7 @@ export function CarouselControls({ onPrev, onNext }: CarouselControlsProps) {
         type="button"
         onClick={onNext}
         className="ts-nav-btn"
-        aria-label="Next testimonials"
+        aria-label="Next testimonial"
       >
         <Icon name="ArrowRight" size={18} />
       </button>

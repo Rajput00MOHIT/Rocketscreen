@@ -164,7 +164,7 @@
 
 @media (min-width: 640px) {
   .ps-card-description {
-    font-size: 17px;
+    font-size: 32px;
   }
 }
 
@@ -179,7 +179,7 @@
 .ps-preview-wrapper {
   position: relative;
   width: 100%;
-  margin-top: -100px;
+  margin-top: -180px;
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 0;

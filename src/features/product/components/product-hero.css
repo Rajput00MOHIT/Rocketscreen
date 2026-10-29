@@ -33,10 +33,11 @@
   transform: translate(-50%, -10%);
   width: 100%;
   max-width: 1200px;
+  padding-top: 900px;
   height: 650px;
   background: radial-gradient(ellipse at center,
-      rgba(253, 232, 243, 0.75) 0%,
-      rgba(253, 242, 248, 0.45) 45%,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 228, 243, 0.45) 45%,
       rgba(255, 255, 255, 0) 72%);
   pointer-events: none;
   z-index: 1;

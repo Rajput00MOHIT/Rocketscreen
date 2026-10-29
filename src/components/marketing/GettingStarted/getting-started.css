@@ -111,7 +111,9 @@
   justify-content: flex-start;
   align-items: flex-start;
   box-shadow: 0 2px 10px rgba(23, 23, 28, 0.02);
-  transition: box-shadow 0.3s ease, border-color 0.3s ease,
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease,
     opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   opacity: 0;
@@ -121,6 +123,23 @@
 .gs-step-card:hover {
   box-shadow: 0 8px 24px -2px rgba(23, 23, 28, 0.06);
   border-color: #d4d4d8;
+}
+
+.gs-step-card:focus-visible {
+  outline: 2px solid #d91c8a;
+  outline-offset: 3px;
+}
+
+/* Active Highlight for Hovered / Focused Step Card */
+.gs-step-card.is-active {
+  background-color: #fdf2f813;
+  border-color: #fbcfe877;
+  box-shadow: 0 8px 12px -2px rgba(217, 28, 138, 0.014);
+}
+
+.gs-step-card.is-active .gs-icon-box {
+  background-color: #fce7f3;
+  transform: translateY(-2px);
 }
 
 .gs-step-card.is-visible {
@@ -272,12 +291,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  overflow: visible;
   padding: 16px;
   box-shadow: 0 4px 16px rgba(23, 23, 28, 0.04);
   opacity: 0;
   transform: scale(0.92);
   transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.25s,
-    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.25s;
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.25s,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .gs-center-brand-box.is-visible {
@@ -285,43 +308,61 @@
   transform: scale(1);
 }
 
-.gs-center-brand-box {
-  cursor: pointer;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+.gs-center-brand-box.has-active-step {
+  border-color: #fbcfe8;
+  box-shadow: 0 8px 24px rgba(217, 28, 138, 0.12);
 }
 
-.gs-center-brand-box:hover {
-  transform: scale(1.06);
-  box-shadow: 0 8px 24px rgba(217, 28, 138, 0.18);
-}
-
-.gs-center-brand-img {
+/* Central Circular Logo Container: Stationary Pink-to-Orange Gradient Background */
+.gs-center-brand-logo-container {
+  position: relative;
   width: 72px;
   height: 72px;
-  object-fit: contain;
-  filter: drop-shadow(0 4px 12px rgba(217, 28, 138, 0.25));
-  will-change: transform;
-  transform-origin: center center;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(217, 28, 138, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (min-width: 1024px) {
-  .gs-center-brand-img {
+  .gs-center-brand-logo-container {
     width: 84px;
     height: 84px;
   }
 }
 
-.gs-center-brand-box:hover .gs-center-brand-img {
-  animation: gs-spin 2s linear infinite;
+/* Completely Stationary Background Gradient Circle */
+.gs-center-brand-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
 }
 
-@keyframes gs-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Rotating White Rocket Symbol Inside the Logo */
+.gs-center-rocket-rotator {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center center;
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+  pointer-events: none;
+}
+
+.gs-center-rocket-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
 }
 
 /* --------------------------------------------------------------------------
@@ -335,6 +376,10 @@
   .gs-center-brand-box {
     opacity: 1 !important;
     transform: none !important;
+    transition: none !important;
+  }
+
+  .gs-center-rocket-rotator {
     transition: none !important;
   }
 }

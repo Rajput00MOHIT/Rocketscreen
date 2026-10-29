@@ -91,13 +91,13 @@
 }
 
 .hero-title {
-  font-size: 38px;
-  line-height: 1.12;
-  font-weight: 800;
+  font-size: 56px;
+  line-height: 1;
+  font-weight: 600;
   letter-spacing: -0.035em;
-  color: #171717;
+  color: #111827;
   max-width: 900px;
-  margin: 0;
+  margin: -20px;
 }
 
 @media (min-width: 640px) {
@@ -177,7 +177,7 @@
   transform: rotate(6deg);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   padding: 5px;
-  gap: 3px;
+  gap: 30px;
 }
 
 @media (min-width: 640px) {

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Container } from '@/components/ui';
 import { RatingSummary } from './RatingSummary';
 import { TestimonialCard, TestimonialItem } from './TestimonialCard';
@@ -8,6 +8,8 @@ import { CarouselControls } from './CarouselControls';
 import seanSimkinsImg from '@/assets/Testimonial/Sean Simkins portrait.png';
 import patrickFImg from '@/assets/Testimonial/Patrick F portrait.png';
 import './testimonials.css';
+
+const AUTOPLAY_INTERVAL_MS = 2000;
 
 const TESTIMONIALS_DATA: readonly TestimonialItem[] = [
   {
@@ -42,19 +44,25 @@ const TESTIMONIALS_DATA: readonly TestimonialItem[] = [
 
 export function TestimonialsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState<'next' | 'prev'>('next');
+  const [isPaused, setIsPaused] = useState(false);
+  const [isTabVisible, setIsTabVisible] = useState(true);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
   const total = TESTIMONIALS_DATA.length;
 
-  const handlePrev = () => {
+  const handlePrev = useCallback(() => {
+    setDirection('prev');
     setCurrentIndex((prev) => (prev - 1 + total) % total);
-  };
+  }, [total]);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
+    setDirection('next');
     setCurrentIndex((prev) => (prev + 1) % total);
-  };
+  }, [total]);
 
+  // Section entrance visibility via IntersectionObserver
   useEffect(() => {
     const element = sectionRef.current;
     if (!element) return;
@@ -86,6 +94,29 @@ export function TestimonialsSection() {
     };
   }, []);
 
+  // Track browser tab visibility to pause autoplay when hidden
+  useEffect(() => {
+    const onVisibilityChange = () => {
+      setIsTabVisible(document.visibilityState === 'visible');
+    };
+
+    document.addEventListener('visibilitychange', onVisibilityChange);
+    return () => {
+      document.removeEventListener('visibilitychange', onVisibilityChange);
+    };
+  }, []);
+
+  // 2-second continuous autoplay timer with automatic reset upon manual interaction
+  useEffect(() => {
+    if (!isVisible || isPaused || !isTabVisible) return;
+
+    const timer = setInterval(() => {
+      handleNext();
+    }, AUTOPLAY_INTERVAL_MS);
+
+    return () => clearInterval(timer);
+  }, [currentIndex, isVisible, isPaused, isTabVisible, handleNext]);
+
   // Compute 2 visible testimonials for desktop
   const firstItem = TESTIMONIALS_DATA[currentIndex % total];
   const secondItem = TESTIMONIALS_DATA[(currentIndex + 1) % total];
@@ -105,17 +136,48 @@ export function TestimonialsSection() {
           </h2>
         </div>
 
-        {/* Unified 3-Column Container */}
-        <div className={`ts-unified-container ${isVisible ? 'is-visible' : ''}`}>
+        {/* Unified 3-Column Container with Autoplay Pause on Hover/Focus */}
+        <div
+          className={`ts-unified-container ${isVisible ? 'is-visible' : ''}`}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onFocus={() => setIsPaused(true)}
+          onBlur={(e) => {
+            if (!e.currentTarget.contains(e.relatedTarget)) {
+              setIsPaused(false);
+            }
+          }}
+          tabIndex={0}
+          role="region"
+          aria-roledescription="carousel"
+          aria-label="Customer Testimonials Carousel"
+          onKeyDown={(e) => {
+            if (e.key === 'ArrowLeft') {
+              e.preventDefault();
+              handlePrev();
+            } else if (e.key === 'ArrowRight') {
+              e.preventDefault();
+              handleNext();
+            }
+          }}
+        >
           <div className="ts-grid">
-            {/* Column 1: Rating Summary */}
+            {/* Column 1: Rating Summary (Static) */}
             <RatingSummary rating="4.8" reviewCount="500+ Reviews" />
 
             {/* Column 2: First Testimonial Card */}
-            <TestimonialCard testimonial={firstItem} />
+            <TestimonialCard
+              testimonial={firstItem}
+              direction={direction}
+              animKey={`${currentIndex}-${firstItem.id}`}
+            />
 
             {/* Column 3: Second Testimonial Card */}
-            <TestimonialCard testimonial={secondItem} />
+            <TestimonialCard
+              testimonial={secondItem}
+              direction={direction}
+              animKey={`${currentIndex}-${secondItem.id}`}
+            />
           </div>
 
           {/* Bottom-left Carousel Controls */}
