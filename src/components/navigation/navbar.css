@@ -88,6 +88,7 @@
 }
 
 .rs-nav-link:hover .rs-nav-chevron,
+.rs-nav-link.is-active .rs-nav-chevron,
 .rs-nav-chevron-btn:hover .rs-nav-chevron,
 .rs-nav-chevron-btn.is-open .rs-nav-chevron {
   color: #d91c8a;
@@ -351,7 +352,8 @@
   transition: all 0.15s ease;
 }
 
-.rs-mobile-nav-item:hover {
+.rs-mobile-nav-item:hover,
+.rs-mobile-nav-item.is-active {
   background-color: #fafafb;
   color: #d91c8a;
 }

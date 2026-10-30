@@ -13,3 +13,4 @@ export * from './integrations';
 export * from './organizations';
 export * from './settings';
 export * from './product';
+export * from './solutions';

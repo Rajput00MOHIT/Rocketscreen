@@ -21,6 +21,12 @@ export function NavbarLinks({
 }: NavbarLinksProps) {
   const pathname = usePathname();
 
+  const isLinkActive = (targetHref: string) => {
+    if (!pathname) return false;
+    if (targetHref === '/') return pathname === '/';
+    return pathname === targetHref || pathname.startsWith(`${targetHref}/`);
+  };
+
   return (
     <nav aria-label="Main Navigation" className={`rs-navbar-nav ${className}`}>
       {items.map((item) => {
@@ -35,14 +41,16 @@ export function NavbarLinks({
           );
         }
 
+        const isActive = isLinkActive(item.href);
+
         if (item.hasDropdown) {
           return (
             <Link
               key={item.label}
               href={item.href}
               onClick={onItemClick}
-              className={`rs-nav-link ${pathname === item.href ? 'is-active' : ''}`}
-              aria-current={pathname === item.href ? 'page' : undefined}
+              className={`rs-nav-link ${isActive ? 'is-active' : ''}`}
+              aria-current={isActive ? 'page' : undefined}
             >
               <span>{item.label}</span>
               <Icon
@@ -54,8 +62,6 @@ export function NavbarLinks({
             </Link>
           );
         }
-
-        const isActive = pathname === item.href;
 
         return (
           <Link

@@ -1,0 +1,291 @@
+/* ==========================================================================
+   Solutions Page — "Give Every Team a Clearer View" Section Styles
+   ========================================================================== */
+
+.team-clearer-view-section {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  padding-top: 64px;
+  padding-bottom: 80px;
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .team-clearer-view-section {
+    padding-top: 80px;
+    padding-bottom: 96px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .team-clearer-view-section {
+    padding-top: 96px;
+    padding-bottom: 120px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Heading
+   -------------------------------------------------------------------------- */
+.team-view-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 44px auto;
+}
+
+@media (min-width: 1024px) {
+  .team-view-header {
+    margin-bottom: 60px;
+  }
+}
+
+.team-view-heading {
+  font-size: 32px;
+  line-height: 1.15;
+  font-weight: 600;
+  color: #171717;
+  letter-spacing: -0.035em;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.team-view-heading-line {
+  display: block;
+}
+
+@media (min-width: 640px) {
+  .team-view-heading {
+    font-size: 40px;
+    line-height: 1.14;
+    gap: 6px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .team-view-heading {
+    font-size: 46px;
+    line-height: 1.12;
+    letter-spacing: -0.04em;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Two-Column Layout Grid
+   -------------------------------------------------------------------------- */
+.team-view-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .team-view-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: 56px;
+    align-items: stretch;
+  }
+}
+
+@media (min-width: 1280px) {
+  .team-view-grid {
+    gap: 68px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Left Column: Department Items List
+   -------------------------------------------------------------------------- */
+.team-view-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.team-view-item-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  padding: 20px 0;
+  cursor: pointer;
+  position: relative;
+  border-bottom: 1px solid #e5e7eb;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+}
+
+.team-view-item-btn:focus-visible {
+  outline: 2px solid #d91c8a;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Active indicator underline */
+.team-view-item-btn.is-active {
+  border-bottom: 2.5px solid #d91c8a;
+}
+
+.team-view-item-title {
+  font-size: 19px;
+  line-height: 1.3;
+  font-weight: 600;
+  color: #71717a;
+  margin: 0 0 8px 0;
+  transition: color 0.2s ease;
+}
+
+.team-view-item-btn.is-active .team-view-item-title {
+  color: #171717;
+  font-weight: 700;
+}
+
+.team-view-item-btn:hover:not(.is-active) .team-view-item-title {
+  color: #27272a;
+}
+
+.team-view-item-desc {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #a1a1aa;
+  margin: 0;
+  max-width: 440px;
+  transition: color 0.2s ease;
+}
+
+.team-view-item-btn.is-active .team-view-item-desc {
+  color: #52525b;
+}
+
+.team-view-item-btn:hover:not(.is-active) .team-view-item-desc {
+  color: #71717a;
+}
+
+@media (min-width: 640px) {
+  .team-view-item-btn {
+    padding: 22px 0;
+  }
+
+  .team-view-item-title {
+    font-size: 20px;
+  }
+
+  .team-view-item-desc {
+    font-size: 14.5px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Right Column: Rounded Preview Container
+   -------------------------------------------------------------------------- */
+.team-view-preview-card {
+  position: relative;
+  background-color: #f9fafb;
+  border: 1px solid #f3f4f6;
+  border-radius: 28px;
+  padding: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 380px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px -2px rgba(23, 23, 28, 0.03);
+}
+
+@media (min-width: 640px) {
+  .team-view-preview-card {
+    min-height: 440px;
+    padding: 44px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .team-view-preview-card {
+    min-height: 500px;
+    height: 100%;
+    padding: 48px;
+  }
+}
+
+/* Subtle inner background atmosphere */
+.team-view-preview-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(249, 250, 251, 0.5) 100%);
+  pointer-events: none;
+}
+
+.team-view-visual-wrapper {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Transition animation between visuals */
+.team-view-visual-stage {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.team-view-visual-stage.is-transitioning {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.team-view-visual-img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 340px;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  filter: drop-shadow(0 12px 28px rgba(23, 23, 28, 0.06));
+}
+
+@media (min-width: 640px) {
+  .team-view-visual-img {
+    max-height: 380px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .team-view-visual-img {
+    max-height: 400px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Accessibility & Prefers Reduced Motion
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+
+  .team-view-item-btn,
+  .team-view-item-title,
+  .team-view-item-desc,
+  .team-view-visual-stage {
+    transition: none !important;
+    transform: none !important;
+  }
+}

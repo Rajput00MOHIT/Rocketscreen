@@ -137,6 +137,7 @@
 }
 
 @media (max-width: 640px) {
+  .rs-fixed-bottom-cta-inner,
   .rs-fixed-bottom-inner {
     flex-wrap: wrap;
     gap: 10px;
@@ -152,6 +153,7 @@
     width: 100%;
     justify-content: center;
     gap: 10px;
+    flex-wrap: wrap;
   }
 
   .rs-fixed-bottom-divider {

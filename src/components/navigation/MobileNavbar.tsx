@@ -3,6 +3,7 @@
 import React, { useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { Button, Icon } from '@/components/ui';
 import { MARKETING_NAV_ITEMS, NAV_ACTIONS } from '@/lib/constants/navigation';
 import logoSvg from '@/assets/brand/logo/rocketscreens-logo.svg';
@@ -14,6 +15,14 @@ export interface MobileNavbarProps {
 }
 
 export function MobileNavbar({ isOpen, onClose }: MobileNavbarProps) {
+  const pathname = usePathname();
+
+  const isLinkActive = (targetHref: string) => {
+    if (!pathname) return false;
+    if (targetHref === '/') return pathname === '/';
+    return pathname === targetHref || pathname.startsWith(`${targetHref}/`);
+  };
+
   // Lock body scrolling when mobile menu is open
   useEffect(() => {
     if (isOpen) {
@@ -77,13 +86,15 @@ export function MobileNavbar({ isOpen, onClose }: MobileNavbarProps) {
           {/* Nav Links */}
           <nav className="rs-mobile-nav-list" aria-label="Mobile Menu Navigation">
             {MARKETING_NAV_ITEMS.map((item) => {
+              const isActive = isLinkActive(item.href);
+
               if (item.hasDropdown && item.dropdownItems && item.dropdownItems.length > 0) {
                 return (
                   <div key={item.label} className="rs-mobile-nav-group">
                     <Link
                       href={item.href}
                       onClick={onClose}
-                      className="rs-mobile-nav-item"
+                      className={`rs-mobile-nav-item ${isActive ? 'is-active' : ''}`}
                     >
                       <span>{item.label}</span>
                       <Icon name="ChevronDown" size={16} />
@@ -94,7 +105,7 @@ export function MobileNavbar({ isOpen, onClose }: MobileNavbarProps) {
                           key={sub.label}
                           href={sub.href}
                           onClick={onClose}
-                          className="rs-mobile-subnav-item"
+                          className={`rs-mobile-subnav-item ${isLinkActive(sub.href) ? 'is-active' : ''}`}
                         >
                           <span>{sub.label}</span>
                         </Link>
@@ -109,7 +120,7 @@ export function MobileNavbar({ isOpen, onClose }: MobileNavbarProps) {
                   key={item.label}
                   href={item.href}
                   onClick={onClose}
-                  className="rs-mobile-nav-item"
+                  className={`rs-mobile-nav-item ${isActive ? 'is-active' : ''}`}
                 >
                   <span>{item.label}</span>
                   {item.hasDropdown && <Icon name="ChevronDown" size={16} />}

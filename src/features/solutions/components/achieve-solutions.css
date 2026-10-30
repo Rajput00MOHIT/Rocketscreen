@@ -1,0 +1,258 @@
+/* ==========================================================================
+   Solutions Page — "What Do You Want to Achieve?" Section Styles
+   ========================================================================== */
+
+.achieve-solutions-section {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  padding-top: 64px;
+  padding-bottom: 80px;
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .achieve-solutions-section {
+    padding-top: 80px;
+    padding-bottom: 96px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .achieve-solutions-section {
+    padding-top: 96px;
+    padding-bottom: 120px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Heading
+   -------------------------------------------------------------------------- */
+.achieve-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 44px auto;
+}
+
+@media (min-width: 1024px) {
+  .achieve-header {
+    margin-bottom: 56px;
+  }
+}
+
+.achieve-heading {
+  font-size: 32px;
+  line-height: 1.15;
+  font-weight: 600;
+  color: #171717;
+  letter-spacing: -0.035em;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.achieve-heading-line {
+  display: block;
+}
+
+@media (min-width: 640px) {
+  .achieve-heading {
+    font-size: 40px;
+    line-height: 1.14;
+    gap: 6px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .achieve-heading {
+    font-size: 46px;
+    line-height: 1.12;
+    letter-spacing: -0.04em;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Four-Card Responsive Grid
+   -------------------------------------------------------------------------- */
+.achieve-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .achieve-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .achieve-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Achieve Card
+   -------------------------------------------------------------------------- */
+.achieve-card {
+  position: relative;
+  background-color: #f9fafb;
+
+  padding: 32px 24px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 420px;
+  transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 1024px) {
+  .achieve-card {
+    min-height: 450px;
+    padding: 34px 24px 30px 24px;
+  }
+}
+
+.achieve-card:hover {
+  background-color: #ffffff;
+  border-color: #eaeaea;
+  border: 1px solid rgba(255, 192, 203, 0.23);
+  transform: translateY(-4px);
+}
+
+/* Card Content (Top) */
+.achieve-card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.achieve-card-title {
+  font-size: 20px;
+  line-height: 1.25;
+  font-weight: 700;
+  color: #171717;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.achieve-card-title-line {
+  display: block;
+}
+
+@media (min-width: 640px) {
+  .achieve-card-title {
+    font-size: 21px;
+  }
+}
+
+.achieve-card-desc {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #71717a;
+  margin: 0 0 18px 0;
+  min-height: 40px;
+}
+
+/* "Explore solution →" Link */
+.achieve-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #d91c8a;
+  text-decoration: none;
+  width: fit-content;
+  border-radius: 4px;
+  transition: color 0.2s ease;
+  outline: none;
+}
+
+.achieve-card-link:focus-visible {
+  outline: 2px solid #d91c8a;
+  outline-offset: 4px;
+}
+
+.achieve-card-link:hover,
+.achieve-card:hover .achieve-card-link {
+  color: #c3197c;
+}
+
+.achieve-card-arrow {
+  display: inline-block;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.achieve-card:hover .achieve-card-arrow {
+  transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   Card 3D Illustration (Lower portion)
+   -------------------------------------------------------------------------- */
+.achieve-card-visual {
+  position: relative;
+  width: 100%;
+  height: 190px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-top: 24px;
+  pointer-events: none;
+}
+
+@media (min-width: 1024px) {
+  .achieve-card-visual {
+    height: 200px;
+  }
+}
+
+.achieve-card-img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 175px;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 10px 20px rgba(217, 28, 138, 0.05));
+}
+
+@media (min-width: 1024px) {
+  .achieve-card-img {
+    max-height: 185px;
+  }
+}
+
+.achieve-card:hover .achieve-card-img {
+  transform: translateY(-6px) scale(1.05);
+}
+
+/* --------------------------------------------------------------------------
+   Accessibility & Prefers Reduced Motion
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+
+  .achieve-card,
+  .achieve-card:hover,
+  .achieve-card-link,
+  .achieve-card-arrow,
+  .achieve-card-img,
+  .achieve-card:hover .achieve-card-img {
+    transition: none !important;
+    transform: none !important;
+  }
+}
